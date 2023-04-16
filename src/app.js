@@ -21,6 +21,7 @@ app.use(session({
 app.use(cors())
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname)));
 app.use(express.static(path.join(__dirname, 'paginas')));
 
 router.get('/', (req, res, next) => {
@@ -38,11 +39,11 @@ router.get('/', (req, res, next) => {
 })()
 
 app.get('/login', (req, res) => {
-  res.sendFile(path.join(__dirname, './login.html'))
+  res.sendFile(path.join(__dirname, './paginas/login/login.html'))
 });
 
 app.get('/registro', (req, res) => {
-  res.sendFile(path.join(__dirname, './registro.html'))
+  res.sendFile(path.join(__dirname, './paginas/registro/registro.html'))
 });
 
 app.get('/home', (req, res) => {
